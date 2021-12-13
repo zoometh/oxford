@@ -8,7 +8,7 @@ thomas.huet@arch.ox.ac.uk
 ## Research Interests
 
 My main research topic is Late Prehistory and Protohistory (Early Neolithic to Final Bronze Age) of Mediterranean and Western Europe, with particular interest for ancient iconography. I develop IT methods to manage data and knowledge representations. 
-
+s
 ### Geographic Areas
 
 Western Europe, Mediterranean, Middle East, North Africa
