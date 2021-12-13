@@ -1,4 +1,4 @@
-# Dr Thomas Huet <img src="www/OX_SoA_profile.jpg" width='100px' align="right"/>
+# Dr Thomas Huet <img src="www/OX_SoA_profile.jpg" width='250px' align="right"/>
 
 ## EAMENA Researcher and Database Manager
 
