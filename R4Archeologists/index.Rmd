@@ -1,0 +1,107 @@
+---
+title: "<span style='font-size: 40px'><b>R4Archaeologists</b></style> <span style='font-size: 30px'> <br>Report data analysis with Rmarkdown <br></style>"
+# abstract: "" 
+author: "Thomas Huet"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+bibliography: references.bib
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+pagetitle: "Report with Rmarkdown"
+---
+
+```{r, echo=FALSE}
+url.root <- "https://raw.githubusercontent.com/zoometh/oxford/main/R4Archaeologists/www/"
+htmltools::img(src = paste0(url.root, "logo.png"), 
+               alt = 'logo', 
+               width = '150px',
+               style = 'position:absolute; top:0; right:0; padding:10px;')
+tr::opts_chunk$set(echo = TRUE)
+```
+
+# Rmarkdown introduction (45 min)
+
+Authoring framework for data science, or data-driven document, combining:
+
+* parts in R code
+
+* parts in markdown syntax. 
+
+```{my.chunk, echo=FALSE, out.width="50%", fig.cap="Pisa"}
+my.sum <- 1 + 1
+my.img <- paste0(url.root, "my_img.png")
+knitr::include_graphics(my.img)
+```
+
+Markdown syntax is plain text used in GitHub, Sketchfab, Slack, bookdown, etc. Editing in RStudio, support objects BibTex, 3D, videos, etc. Export in HTML, PDF, LaTex, etc.
+
+## examples
+
+* this webpage
+* a bookdown: @Hinz10
+* ...
+
+# Rmarkdown structure
+
+## Code chunks
+
+### header
+
+include, echo, eval, caption, etc.
+
+### body
+
+R code
+
+## Narrative text
+
+Markdown syntax  
+
+#### Syntax overview
+
+[Basic syntax](https://www.markdownguide.org/basic-syntax/)
+
+* **bold**, *italic*, `code`, <span style="color:red">color</span>
+* [hyperlinks](https://rmarkdown.rstudio.com/), [bookmarks](#practice)
+* lists
+  - 1
+  - 2
+  - 3
+* dataframe
+* footnotes^[I am a footnote]
+* call of variable: `r my.sum`, call of chunk
+* etc.
+
+### YAML header
+
+author, date, table of contents, bibliographic references
+
+# Practice (115 min) {#practice}
+
+* Include R code in a code chunk
+* Use of markdown syntax
+* add bibliographical references
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
