@@ -20,7 +20,6 @@ htmltools::img(src = paste0(url.root, "logo.png"),
                alt = 'logo', 
                width = '150px',
                style = 'position:absolute; top:0; right:0; padding:10px;')
-tr::opts_chunk$set(echo = TRUE)
 ```
 
 # Rmarkdown introduction (45 min)
@@ -31,37 +30,39 @@ Authoring framework for data science, or data-driven document, combining:
 
 * parts in markdown syntax. 
 
-```{my.chunk, echo=FALSE, out.width="50%", fig.cap="Pisa"}
+```{r my.chunk, echo=FALSE, out.width="50%", fig.cap="Pisa"}
 my.sum <- 1 + 1
-my.img <- paste0(url.root, "my_img.png")
+my.img <- paste0(url.root, "pisa.png")
 knitr::include_graphics(my.img)
 ```
 
-Markdown syntax is plain text used in GitHub, Sketchfab, Slack, bookdown, etc. Editing in RStudio, support objects BibTex, 3D, videos, etc. Export in HTML, PDF, LaTex, etc.
+Markdown syntax is plain text used in GitHub, Sketchfab, Slack, bookdown, etc. Editing in RStudio, support objects BibTex, 3D, videos, etc. Export in HTML, PDF, LaTex, etc. For example:
 
-## examples
-
-* this webpage
-* a bookdown: @Hinz10
+* this Rmarkdown document/webpage
+* a R handbook in bookdown: @Hinz21
 * ...
 
-# Rmarkdown structure
+## Environment
 
-## Code chunks
+packages rstudio, knitr, etc.
 
-### header
+## Rmarkdown structure
+
+### Code chunks
+
+#### header
 
 include, echo, eval, caption, etc.
 
-### body
+#### body
 
 R code
 
-## Narrative text
+### Narrative text
 
 Markdown syntax  
 
-#### Syntax overview
+##### Syntax overview
 
 [Basic syntax](https://www.markdownguide.org/basic-syntax/)
 
@@ -76,11 +77,11 @@ Markdown syntax
 * call of variable: `r my.sum`, call of chunk
 * etc.
 
-### YAML header
+#### YAML header
 
 author, date, table of contents, bibliographic references
 
-# Practice (115 min) {#practice}
+## Practice (115 min) {#practice}
 
 * Include R code in a code chunk
 * Use of markdown syntax
