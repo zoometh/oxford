@@ -1,0 +1,103 @@
+---
+title: "<span style='font-size: 40px'><b>Report with Rmarkdown</b></style> <span style='font-size: 30px'> <br>Report data analysis with Rmarkdown authoring framework<br></style>"
+# abstract: "" 
+# author: "Thomas Huet"
+# date: "`r format(Sys.time(), '%d %B %Y')`"
+bibliography: references.bib
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+pagetitle: "Report with Rmarkdown"
+---
+
+
+```{r my.chunk, echo=FALSE, out.width="50%", fig.align="center", fig.cap="R4Archaeologists"}
+my.sum <- 1 + 1
+my.img <- "https://raw.githubusercontent.com/zoometh/oxford/main/R4Archaeologists/www/logo.png"
+knitr::include_graphics(my.img)
+```
+
+# Authoring framework (10 min)
+
+Authoring framework for data science, or data-driven document, combining code and narrative text. Rmarkdown combines
+
+* parts in R code
+
+* parts in markdown syntax. 
+
+# Theory (30 min)
+
+## Writing
+
+### Markdown syntax
+
+Markdown syntax is plain text used in GitHub, Sketchfab, Slack, bookdown, etc. Editing in RStudio, support objects BibTex, 3D, videos, etc. Export in HTML, PDF, LaTex, etc. For example:
+
+* this Rmarkdown document/webpage
+* a R handbook in bookdown: @Hinz21
+* ...
+
+### Rmarkdown structure
+
+#### Code chunks
+
+* header
+  - include
+  - echo
+  - eval
+  - caption
+  - etc.
+* body
+  - R code
+
+#### Narrative text
+
+Markdown syntax
+
+* **bold**, *italic*, `code`, <span style="color:red">color</span>
+* [hyperlinks](https://rmarkdown.rstudio.com/), [bookmarks](#practice)
+* lists
+  1.
+  2.
+  3.
+* dataframe
+* footnotes^[I am a footnote]
+* calls
+  - variable: 'my.sum = `r my.sum`'
+  - chunk or figure
+* etc.
+
+##### YAML header
+
+author, date, table of contents, bibliographic references
+
+## Publishing
+
+PDF, HTML, etc.
+
+# Practice (120 min) {#practice}
+
+
+# References
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
