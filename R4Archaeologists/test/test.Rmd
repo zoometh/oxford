@@ -1,0 +1,19 @@
+---
+title: "Untitled"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(reticulate)
+library(stringi)
+```
+
+## R Markdown
+
+`r stri_rand_lipsum(1)`
+
+```{python, echo = FALSE}
+x = 'hello, python world!'
+print(x.split(' '))
+```

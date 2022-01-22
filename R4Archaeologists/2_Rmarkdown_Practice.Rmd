@@ -1,0 +1,130 @@
+---
+title: "Handaxes from Furze Platt (Berkshire, United-Kingdom). A quantative study of Lower Palaeolithic Axes in South East England"
+author: ""
+date: ""
+bibliography: references.bib
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+pagetitle: "1. Report with Rmarkdown - Practice"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+## Not run
+# install.packages("archdata")
+library(archdata)
+```
+
+Study of the handaxes from the Furze Platt site stored at the Royal Ontario Museum.
+
+> in the YAML header
+>   - update the **author** name, and the **date**
+>   - add a new line for an **abstract**
+>   - emphise the first part of the **title** with HTML tags (letter size)
+>   - update the `references.bib` with 
+
+```{r handaxes}
+data("Handaxes")
+```
+
+Sometimes it is useful to show exactly how the computation has been done (echo = True)
+
+```{r pressure, echo=True}
+plot(pressure)
+```
+
+# Authoring framework (10 min)
+
+Authoring framework for data science, or data-driven document, combining code and narrative text. 
+
+
+
+
+Rmarkdown combines
+
+* parts in R code
+
+* parts in markdown syntax. 
+
+# Theory (30 min)
+
+## Writing
+
+### Markdown syntax
+
+Markdown syntax is plain text used in GitHub, Sketchfab, Slack, bookdown, etc. Editing in RStudio, support objects BibTex, 3D, videos, etc. Export in HTML, PDF, LaTex, etc. For example:
+
+* this Rmarkdown document/webpage
+* a R handbook in bookdown: @Hinz21
+* ...
+
+### Rmarkdown structure
+
+
+Rmarkdown structure (bandeau)
+
+#### Code chunks
+
+* header
+  - include
+  - echo
+  - eval
+  - caption
+  - etc.
+* body
+  - R code
+
+#### Narrative text
+
+Markdown syntax
+
+* **bold**, *italic*, `code`, <span style="color:red">color</span>
+* [hyperlinks](https://rmarkdown.rstudio.com/), [bookmarks](#practice)
+* lists
+  1.
+  2.
+  3.
+* dataframe
+* footnotes^[I am a footnote]
+* calls
+  - variable: 'my.sum = `r my.sum`'
+  - chunk or figure
+* etc.
+
+##### YAML header
+
+author, date, table of contents, bibliographic references
+
+## Publishing
+
+PDF, HTML, etc.
+
+# Practice (120 min) {#practice}
+
+
+
+# References
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

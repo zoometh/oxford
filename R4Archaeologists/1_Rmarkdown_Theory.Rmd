@@ -11,7 +11,7 @@ output:
     toc_float:
       collapsed: false
       smooth_scroll: false
-pagetitle: "Report with Rmarkdown"
+pagetitle: "1. Report with Rmarkdown - Theory"
 ---
 
 
@@ -23,25 +23,63 @@ knitr::include_graphics(my.img)
 
 # Authoring framework (10 min)
 
-Authoring framework for data science, or data-driven document, combining code and narrative text. Rmarkdown combines
+Rmarkdown is an authoring framework for data science^[or data-driven document] combining: 
 
-* parts in R code
+* YAML header
 
-* parts in markdown syntax. 
+* code (R code)
+
+* narrative text (Markdown syntax). 
 
 # Theory (30 min)
+
+knitr package
 
 ## Writing
 
 ### Markdown syntax
 
-Markdown syntax is plain text used in GitHub, Sketchfab, Slack, bookdown, etc. Editing in RStudio, support objects BibTex, 3D, videos, etc. Export in HTML, PDF, LaTex, etc. For example:
+Markdown syntax is plain text used in:
 
-* this Rmarkdown document/webpage
-* a R handbook in bookdown: @Hinz21
-* ...
+* GitHub
+* Sketchfab
+* Slack
+* bookdown
+  - @Hinz21 R handbook
+* etc. 
+
+Markdown supports HTML:
+
+* <span style='font-size: 40px'>Big font</span>
+* <b>bolded</b>
+* etc.
+
+Editing in RStudio, supports:
+
+* BibTex objects:
+  - 
+* 3D objects
+* videos
+* etc.
+
+Export Rmarkdown in:
+
+* HTML
+  - this Rmarkdown document/webpage
+* PDF
+* LaTex
+* etc.
+
+
+### Rstudio environment
+
+* Navigate through the whole structure (bandeau)
+* Go to the previous/next section/code chunk (up/down arrows)
+* Insert a new code chunk
+
 
 ### Rmarkdown structure
+
 
 #### Code chunks
 
@@ -59,7 +97,9 @@ Markdown syntax is plain text used in GitHub, Sketchfab, Slack, bookdown, etc. E
 Markdown syntax
 
 * **bold**, *italic*, `code`, <span style="color:red">color</span>
-* [hyperlinks](https://rmarkdown.rstudio.com/), [bookmarks](#practice)
+* comments '>'
+* [hyperlinks](https://rmarkdown.rstudio.com/)
+* [bookmarks](#practice)
 * lists
   1.
   2.
@@ -68,18 +108,30 @@ Markdown syntax
 * footnotes^[I am a footnote]
 * calls
   - variable: 'my.sum = `r my.sum`'
-  - chunk or figure
+  - chunk
+  - figure
 * etc.
 
-##### YAML header
+#### YAML header
 
-author, date, table of contents, bibliographic references
+* author
+
+* date:
+  - "03/02/22"
+  - "3rd February 2022"
+  - "`r format(Sys.time(), '%d %B %Y')`"
+  
+* table of contents (toc)
+
+* bibliographic references
 
 ## Publishing
 
-PDF, HTML, etc.
+PDF, HTML, etc. Rpubs
 
 # Practice (120 min) {#practice}
+
+see document 2_Rmarkdown_Practice.Rmd
 
 
 # References
