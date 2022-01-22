@@ -17,3 +17,10 @@ library(stringi)
 x = 'hello, python world!'
 print(x.split(' '))
 ```
+
+an hyphen -- between two word
+
+<img align="left" src="www/rmd_nav_knitOnSave.png" alt=" ">&ensp; knit when save the document
+
+---
+

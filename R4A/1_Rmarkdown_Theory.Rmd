@@ -1,8 +1,8 @@
 ---
-title: "<span style='font-size: 40px'><b>Report with Rmarkdown</b></style> <span style='font-size: 30px'> <br>Report data analysis with Rmarkdown authoring framework<br></style>"
+title: "<span style='font-size: 40px'><b>Report with Rmarkdown</b></style> <span style='font-size: 30px'> <br>Report data analysis with Rmarkdown authoring framework, part 1: Theory<br></style>"
 # abstract: "" 
-# author: "Thomas Huet"
-# date: "`r format(Sys.time(), '%d %B %Y')`"
+author: "Thomas Huet, University of Oxford"
+date: "`r format(Sys.time(), '%B %Y')`"
 bibliography: references.bib
 output:
   html_document:
@@ -15,49 +15,122 @@ pagetitle: "1. Report with Rmarkdown - Theory"
 ---
 
 
-```{r my.chunk, echo=FALSE, out.width="50%", fig.align="center", fig.cap="R4Archaeologists"}
-my.sum <- 1 + 1
+```{r echo=FALSE, out.width="50%", fig.align="center", fig.cap="R4Archaeologists"}
+## Not run
+# install.packages("archdata")
+library(archdata)
 my.img <- "https://raw.githubusercontent.com/zoometh/oxford/main/R4Archaeologists/www/logo.png"
 knitr::include_graphics(my.img)
 ```
 
 # Authoring framework (10 min)
 
-Rmarkdown is an authoring framework for data science^[or data-driven document] combining: 
+Rmarkdown is an authoring framework for data science. It permits to create a computational -- or data-driven -- document, with a notebook interface for report generation. Rmarkdown combines: 
 
-* YAML header
+* a YAML header for the document metadata
 
-* code (R code)
+* many code chunks (R code) for the logics
 
-* narrative text (Markdown syntax). 
+* many narrative chunks (Markdown syntax)
+
+<table style="float: left;border-collapse:collapse;border:none;margin-left:6.75pt;margin-right:6.75pt;">
+    <tbody>
+        <tr>
+            <td style="width: 147.15pt;border: 1pt solid windowtext;background: rgb(217, 149, 148);padding: 0cm 5.4pt;vertical-align: top;">
+                <p style='margin:0cm;font-size:16px;font-family:"Times New Roman",serif;text-align:center;'>YAML<span style="color:black;">&nbsp;header</span></p>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 147.15pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;vertical-align: top;">
+                <p style='margin:0cm;font-size:16px;font-family:"Times New Roman",serif;text-align:center;'>narrative text</p>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 147.15pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;background: rgb(191, 191, 191);padding: 0cm 5.4pt;vertical-align: top;">
+                <p style='margin:0cm;font-size:16px;font-family:"Times New Roman",serif;text-align:center;'><span style='font-size:15px;font-family:"Courier New";color:black;'>R code</span></p>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 147.15pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;vertical-align: top;">
+                <p style='margin:0cm;font-size:16px;font-family:"Times New Roman",serif;text-align:center;'>narrative text</p>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 147.15pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;background: rgb(191, 191, 191);padding: 0cm 5.4pt;vertical-align: top;">
+                <p style='margin:0cm;font-size:16px;font-family:"Times New Roman",serif;text-align:center;'><span style='font-size:15px;font-family:"Courier New";color:black;'>R code</span></p>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 147.15pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;vertical-align: top;">
+                <p style='margin:0cm;font-size:16px;font-family:"Times New Roman",serif;text-align:center;'><span style='font-size:13px;font-family:"Courier New";'>...</span></p>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 147.15pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;background: rgb(191, 191, 191);padding: 0cm 5.4pt;vertical-align: top;">
+                <p style='margin:0cm;font-size:16px;font-family:"Times New Roman",serif;text-align:center;'><span style='font-size:13px;font-family:"Courier New";color:black;'>...</span></p>
+            </td>
+        </tr>
+    </tbody>
+</table>
 
 # Theory (30 min)
 
-knitr package
+On the creation of a new Rmarkdown document, the only package required is {`knitr`}. Knitr package is designed to be a '*transparent engine for dynamic report generation with R*' (@Xie22)
+
+## Rmarkdown document creation
+
+In [RStudio](https://rmarkdown.rstudio.com/):
+&emsp;`File > New file > R Markdown...`
+![](https://raw.githubusercontent.com/zoometh/oxford/main/R4A/www/rmd_create.png){width=600px}
+
+The parameters (`Title`, `Author`) can be changed later on the [YAML header](#yaml)
+
+![](https://raw.githubusercontent.com/zoometh/oxford/main/R4A/www/rmd_create_rmd.png){width=600px}
+
+A new tab is created:
+
+![](https://raw.githubusercontent.com/zoometh/oxford/main/R4A/www/rmd_create_rmd_new.png){width=600px}
+
+### Navigate
+
+In [RStudio](https://rmarkdown.rstudio.com/):
+
+<img align="left" src="www/rmd_nav_scriptWindowTopBar.png" alt=" ">  
+  
+<img align="left" src="www/rmd_nav_knitOnSave.png" alt=" ">&ensp; knit when save the document  
+<img align="left" src="www/rmd_nav_checkSpelling.png" alt=" ">&ensp; check spelling  
+<img align="left" src="www/rmd_nav_knit.png" alt=" ">&ensp; knit the document  
+<img align="left" src="www/rmd_nav_mdFormatOpt.png" alt=" ">&ensp; run [Visual R Markdown](https://rstudio.github.io/visual-markdown-editing/)  
+<img align="left" src="www/rmd_nav_newCodeChunk.png" alt=" ">&ensp; create a new code chunk (R, Bash, D3, Python, etc.)  
+<img align="left" src="www/rmd_nav_run.png" alt=" ">&ensp; run a part or the whole document  
+
+rmd_nav_publish.png
+rmd_nav_visualMdEditor.png
 
 ## Writing
 
 ### Markdown syntax
 
-Markdown syntax is plain text used in:
+Markdown is simple plain text syntax used in code-oriented frameworks:
 
-* GitHub
-* Sketchfab
-* Slack
-* bookdown
-  - @Hinz21 R handbook
+* [Jupyter](https://hub.mybinder.turing.ac.uk/user/ipython-ipython-in-depth-qd7itkd2/notebooks/binder/Index.ipynb)
+* [GitHub](https://github.com/zoometh/oxford/tree/main/R4Archaeologists#rmarkdown)
+* [Sketchfab](https://sketchfab.com/3d-models/roche-de-larcher-a5c0771d898d4816950570cd7fb1be37)
+* [Slack](https://eamena.slack.com/archives/D02KMQULWVD/p1637257246040200)
+* [bookdown](https://martinhinz.github.io/smada2021/book/preface.html)
+* [Stackoverflow](https://stackoverflow.com/a/14747656/2854081)
 * etc. 
 
 Markdown supports HTML:
 
-* <span style='font-size: 40px'>Big font</span>
+* <span style='font-size: 30px'>Big font</span>
 * <b>bolded</b>
 * etc.
 
 Editing in RStudio, supports:
 
 * BibTex objects:
-  - 
+
 * 3D objects
 * videos
 * etc.
@@ -70,6 +143,9 @@ Export Rmarkdown in:
 * LaTex
 * etc.
 
+Convert
+
+* [Word to HTML online](https://wordtohtml.net/)
 
 ### Rstudio environment
 
@@ -96,42 +172,108 @@ Export Rmarkdown in:
 
 Markdown syntax
 
-* **bold**, *italic*, `code`, <span style="color:red">color</span>
+##### Styling
+
+* **bold**, __bold__
+* *italic*, _italic_
+* `code`
+* <span style="color:red">color</span>
+* hyphen -- inside a sentence (see [also here](https://stackoverflow.com/a/52377269/2854081))
+
 * comments '>'
-* [hyperlinks](https://rmarkdown.rstudio.com/)
+> I am a comment
+
+* [hyperlinks]
 * [bookmarks](#practice)
 * lists
   1.
   2.
   3.
-* dataframe
+* data frame
 * footnotes^[I am a footnote]
-* calls
-  - variable: 'my.sum = `r my.sum`'
-  - chunk
-  - figure
-* etc.
 
-#### YAML header
+##### Referring to features
 
-* author
+Refer to a R variable, code chunk, figure (table, graphic), etc.
 
-* date:
-  - "03/02/22"
-  - "3rd February 2022"
-  - "`r format(Sys.time(), '%d %B %Y')`"
+```{r my.chunk, echo=TRUE, out.width="50%", fig.align="center", fig.cap="R4Archaeologists"}
+data("Handaxes")
+number.of.axes <- nrow(Handaxes)
+summary(Handaxes)
+```
+
+* variable:
+
+'(...) the Furze Platt dataset counts `r number.of.axes` described by `r ncol(Handaxes)`. The maximal length (L = `r max(Handaxes$L)`)  (...)'
+
+* chunk
+* figure
+
+* bibliographical reference (@Hinz21)
+
+'(...) @Dale21 (...)' or '(...) studied by Luke Dale (-@Dale21) (...)' or '(...) [see @Dale21] (...)'
+
+##### Pararaphs
+
+* end of line (= `<br>`) with 2 or more spaces and return, for example:
+'Reconnais-toi  
+Cette adorable personne c'est toi  
+Sous le grand chapeau canotier  
+Oeil
+Nez  
+Ta Bouche  
+Voici l’ovale de ta figure  
+Ton cou Exquis' (Apollinaire, 1913)
+
+![](https://raw.githubusercontent.com/zoometh/oxford/main/R4A/www/rmd_eol.png){width=600px}
+
   
-* table of contents (toc)
+* extra spaces
+  - &emsp; `&emsp;` means 4 spaces (= a tabulation)
+  - &ensp; `&ensp;` means 2 spaces
+  - &nbsp; `&nbsp;` means 1 space
+  
+* a line separator
 
-* bibliographic references
+---
+
+
+#### YAML header {#yaml}
+
+Metadata and document configuration
+
+* `title`: Title
+
+* `author`: Author
+
+* `date`:
+  - "`r format(Sys.time(), '%D')`"
+  - "`r format(Sys.time(), '%d %B %Y')`"
+  - etc.
+  
+* `toc`: table of contents
+
+* `bibliography`: bibliographical references
 
 ## Publishing
 
-PDF, HTML, etc. Rpubs
+### Formats
+
+* PDF
+
+* HTML
+
+* etc.
+
+### Platforms
+
+* Rpubs
+
+* GitHub/GitLab
 
 # Practice (120 min) {#practice}
 
-see document 2_Rmarkdown_Practice.Rmd
+see document [Practice](https://zoometh.github.io/oxford/R4A/2_Rmarkdown_Practice)
 
 
 # References
