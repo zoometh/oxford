@@ -1,0 +1,52 @@
+---
+title: "<span style='font-size: 40px'><b>Report with Rmarkdown</b></style> <span style='font-size: 30px'> <br>Report data analysis with Rmarkdown authoring framework, part 3: Advanced<br></style>"
+# abstract: "" 
+author: "Thomas Huet, University of Oxford"
+date: "`r format(Sys.time(), '%B %Y')`"
+bibliography: references.bib
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+## runtine Shiny
+# params:
+#   minimum: 
+#     label: "Minimum:"
+#     value: 100
+#     input: slider
+#     min: 0
+#     max: 1000
+#   region:
+#     label: "Region:"
+#     value: east
+#     input: select
+#     choices: [east, west, north, south]
+#   data: 
+#     label: "Input dataset:"
+#     value: results.csv
+#     input: file
+pagetitle: "3. Report with Rmarkdown - Advanced"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(stringi)
+```
+
+## Integratating Python
+
+`r stri_rand_lipsum(1)`
+
+```{python, echo = FALSE}
+library(reticulate)
+x = 'hello, python world!'
+print(x.split(' '))
+```
+
+## Run parameters
+
+Run in console:
+` rmarkdown::render(paste0(getwd(), "/R4A/3_Rmarkdown_Advanced.Rmd"), params = "ask") `

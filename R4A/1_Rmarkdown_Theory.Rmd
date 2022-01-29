@@ -19,7 +19,7 @@ pagetitle: "1. Report with Rmarkdown - Theory"
 ## Not run
 # install.packages("archdata")
 library(archdata)
-my.img <- "https://raw.githubusercontent.com/zoometh/oxford/main/R4Archaeologists/www/logo.png"
+my.img <- "https://raw.githubusercontent.com/zoometh/oxford/main/R4A/www/logo.png"
 knitr::include_graphics(my.img)
 ```
 
@@ -92,26 +92,33 @@ A new tab is created:
 ![](https://raw.githubusercontent.com/zoometh/oxford/main/R4A/www/rmd_create_rmd_new.png){width=600px}
 
 ### Navigate
-
-In [RStudio](https://rmarkdown.rstudio.com/):
-
 <img align="left" src="www/rmd_nav_scriptWindowTopBar.png" alt=" ">  
-  
-<img align="left" src="www/rmd_nav_knitOnSave.png" alt=" ">&ensp; knit when save the document  
-<img align="left" src="www/rmd_nav_checkSpelling.png" alt=" ">&ensp; check spelling  
-<img align="left" src="www/rmd_nav_knit.png" alt=" ">&ensp; knit the document  
-<img align="left" src="www/rmd_nav_mdFormatOpt.png" alt=" ">&ensp; run [Visual R Markdown](https://rstudio.github.io/visual-markdown-editing/)  
-<img align="left" src="www/rmd_nav_newCodeChunk.png" alt=" ">&ensp; create a new code chunk (R, Bash, D3, Python, etc.)  
-<img align="left" src="www/rmd_nav_run.png" alt=" ">&ensp; run a part or the whole document  
 
-rmd_nav_publish.png
-rmd_nav_visualMdEditor.png
+Use [RStudio](https://rmarkdown.rstudio.com/) GUI tools
+
+* <img align="left" src="www/rmd_nav_knitOnSave.png" alt=" ">&ensp; knit when save the document 
+
+* <img align="left" src="www/rmd_nav_checkSpelling.png" alt=" ">&ensp; check spelling  
+
+* <img align="left" src="www/rmd_nav_knit.png" alt=" ">&ensp; knit the document  
+
+* <img align="left" src="www/rmd_nav_mdFormatOpt.png" alt=" ">&ensp; run [Visual R Markdown](https://rstudio.github.io/visual-markdown-editing/)  
+  -<img align="left" src="www/rmd_nav_visualMdEditor_bar.png" alt=" ">&ensp; new editing tools 
+
+* <img align="left" src="www/rmd_nav_newCodeChunk.png" alt=" ">&ensp; create a new code chunk (R, Bash, D3, Python, etc.)
+
+* <img align="left" src="www/rmd_nav_run.png" alt=" ">&ensp; run a part or the whole document  
+
+* <img align="left" src="www/rmd_nav_publish.png" alt=" ">&ensp; publish the document
+
+* <img align="left" src="www/rmd_nav_visualMdEditor.png" alt=" ">&ensp; run [Visual R Markdown](https://rstudio.github.io/visual-markdown-editing/)  
+
 
 ## Writing
 
 ### Markdown syntax
 
-Markdown is simple plain text syntax used in code-oriented frameworks:
+**Markdown is simple plain text syntax** used in different code-oriented frameworks:
 
 * [Jupyter](https://hub.mybinder.turing.ac.uk/user/ipython-ipython-in-depth-qd7itkd2/notebooks/binder/Index.ipynb)
 * [GitHub](https://github.com/zoometh/oxford/tree/main/R4Archaeologists#rmarkdown)
@@ -123,13 +130,19 @@ Markdown is simple plain text syntax used in code-oriented frameworks:
 
 Markdown supports HTML:
 
-* <span style='font-size: 30px'>Big font</span>
-* <b>bolded</b>
-* etc.
+| code HTML                                            | Output                                              |
+| ---------------------------------------------------- | --------------------------------------------------- |
+| `<span style='font-size: 30px'>Big font</span>`      | <span style='font-size: 30px'>Big font</span>       |
+| `<b>bolded</b>`                                      | <b>bolded</b>                                       |
+|  ...                                                 | ...                                                 |
+
 
 Editing in RStudio, supports:
 
 * BibTex objects:
+
+<img align="left" src="www/rmd_yaml_bib.png" alt="rmd_yaml_bib">&ensp; publish the document
+
 
 * 3D objects
 * videos
@@ -147,15 +160,7 @@ Convert
 
 * [Word to HTML online](https://wordtohtml.net/)
 
-### Rstudio environment
-
-* Navigate through the whole structure (bandeau)
-* Go to the previous/next section/code chunk (up/down arrows)
-* Insert a new code chunk
-
-
 ### Rmarkdown structure
-
 
 #### Code chunks
 
