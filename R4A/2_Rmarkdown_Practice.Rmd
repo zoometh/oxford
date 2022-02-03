@@ -26,7 +26,7 @@ data(Fibulae)
 > __YAML header (10 minutes)__  
 
 > In the above document YAML header  
->   - select your rendering: **pdf_document** or **html_document**  
+>   - select your rendering: **bookdown::pdf_document2:** or **bookdown::html_document2:**  
 >   - update the **title** depending on the dataset of {archdata} you chose  
 >   - update the **author** name
 
