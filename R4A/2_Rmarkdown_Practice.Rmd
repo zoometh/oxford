@@ -10,7 +10,7 @@ output:
 ---
 
 > In this R Markdown document  
->   - Follow the following comments and delete them once completing the instructions  
+>   - Follow the comments and delete them once completing the instructions  
 >   - For each block of instructions there is an estimation of the average duration  
 >   - Do basic improvements for the layouts (colors, size, alignments, etc.), but stay focused on data  
 >   - select a dataset from the {`archdata`} package (here: 'Fibulae') 
