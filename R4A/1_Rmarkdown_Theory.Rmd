@@ -1,5 +1,5 @@
 ---
-title: "<span style='font-size: 40px'><b>Report with R Markdown</b></style> <span style='font-size: 30px'> <br>Report data analysis with R Markdown authoring framework<br></style>Theory"
+title: "<span style='font-size: 40px'><b>Report with R Markdown</b></style> <span style='font-size: 25px'> <br>Report data analysis with R Markdown authoring framework<br></style>Theory"
 author: "Thomas Huet, University of Oxford"
 date: "`r format(Sys.time(), '%B %Y')`"
 output:
@@ -12,7 +12,7 @@ output:
     toc_depth: 4
     toc_float:
       collapsed: no
-      smooth_scroll: no
+      # smooth_scroll: no
 bibliography: references.bib
 pagetitle: Report with R Markdown - Theory
 ---
@@ -20,7 +20,7 @@ pagetitle: Report with R Markdown - Theory
 
 <center>
 
-![1. Report with R Markdown - Theory](www/logo.png){width=350px}
+![Report with R Markdown - Theory](www/logo.png){width=350px}
 
 </center>
 
@@ -46,40 +46,45 @@ library(rgl)
 
 # Introduction
 
-**R Markdown** is an authoring framework for data science (AFDS) combining R code with narrative text. AFDS permits to create a computational -- or data-driven -- document, with a notebook interface for report generation. There are others AFDS like  [Jupyter](https://hub.mybinder.turing.ac.uk/user/ipython-ipython-in-depth-qd7itkd2/notebooks/binder/Index.ipynb) in Python, [D3.js](https://d3js.org/) and [Plotly](https://plotly.com/) both in JavaScript.
-
-| AFDS        | Description | Description          |
+**R Markdown** is an authoring framework for data science (AFDS) combining R code with narrative text. AFDS are used to create data-driven documents (reports) with a notebook interface.  
+  
+| AFDS        | Language    | Description          |
 | ------------| ----------- | -------------------- |
 | Rmarkdown   | R           | front-end oriented   |
-| Jupyter     | Python      | back-end oriented    |
-| D3.js       | JavaScript  | web oriented         |
-| Plotly      | JavaScript  | web oriented         |
+| [Jupyter](https://hub.mybinder.turing.ac.uk/user/ipython-ipython-in-depth-qd7itkd2/notebooks/binder/Index.ipynb)     | Python      | back-end oriented    |
+| [D3.js](https://d3js.org/)       |JavaScript   | web oriented         |
+| [Plotly](https://plotly.com/)      | JavaScript  | web oriented         |
 
-**R Markdown** use Markdown syntax, supports HTML/CSS tags, BibTex bibliographic references, 3D charts. The main R Markdown packages are:
+**R Markdown** is often enough for academic writing. It uses Markdown syntax, supports HTML/CSS markup languages, BibTex references, 3D plots, interactive maps. The main R Markdown packages are:
 
-* {`rmarkdown`} dynamic document
-* {`knitr`} designed to be a '*transparent engine for dynamic report generation with R*' [@Xie22]
-* {`bookdown`} advanced editing and publishing functions
-* {`tinytex`} for LaTeX syntax
+* {`knitr`} engine for dynamic report generation with R (e.g. convert to LaTeX)
+* {`rmarkdown`} convert R Markdown documents into a variety of formats, extension of {`knitr`}
+* {`tinytex`} typesetting system for LaTeX syntax (e.g. export in PDF)
+* {`bookdown`} advanced editing and publishing functions (e.g. cross reference figures)
 
 ## Create a new document
 
 In RStudio:  
 &emsp;`File > New file > R Markdown...`  
 
-![](https://raw.githubusercontent.com/zoometh/oxford/main/R4A/www/rmd_create.png){width=500px}
+![](www/rmd_create.png){width=500px}
 
-The parameters (`Title`, `Author`) can be changed later on the YAML header  
+The options (`Title`, `Author`) can be changed later on the YAML header. Let HTML as the default output format.  
 
 
-![](https://raw.githubusercontent.com/zoometh/oxford/main/R4A/www/rmd_create_rmd.png){width=500px}
+![](www/rmd_create_rmd.png){width=500px}
 
 A new document is created:  
 
 
-![](https://raw.githubusercontent.com/zoometh/oxford/main/R4A/www/rmd_create_rmd_new.png){width=500px}
+![](www/rmd_create_rmd_new.png){width=700px}
 
-Run the new document with <img align="left" src="www/rmd_nav_knit.png" alt=" ">  knit   
+Run the new document with knit, it will launch the render
+
+[![](www/rmd_render.png){width=900px}](https://github.com/zoometh/oxford/blob/main/R4A/www/rmd_render.png)
+
+
+
 
 ## Navigate
 <img align="left" src="www/rmd_nav_scriptWindowTopBar.png" alt=" ">  
@@ -92,17 +97,21 @@ Use RStudio tools
 
 <img align="left" src="www/rmd_nav_knit.png" alt=" ">&ensp; knit the document  
 
-<img align="left" src="www/rmd_nav_mdFormatOpt.png" alt=" ">&ensp; run [Visual R Markdown](https://rstudio.github.io/visual-markdown-editing/) + other parameters   
+<img align="left" src="www/rmd_nav_mdFormatOpt.png" alt=" ">&ensp; run [Visual R Markdown](#vrm) + other options   
   
 &ensp;<img align="left" src="www/rmd_nav_visualMdEditor_bar.png" alt=" ">&ensp; new editing tools 
 
-<img align="left" src="www/rmd_nav_newCodeChunk.png" alt=" ">&ensp; create a new code chunk (R, Bash, D3, Python, etc.)
+<img align="left" src="www/rmd_nav_newCodeChunk.png" alt=" ">&ensp; create a new code chunk (R, Bash, D3, Python, etc.)  
 
 <img align="left" src="www/rmd_nav_run.png" alt=" ">&ensp; run a part or the whole document  
 
 <img align="left" src="www/rmd_nav_publish.png" alt=" ">&ensp; publish the document
 
-<img align="left" src="www/rmd_nav_visualMdEditor.png" alt=" ">&ensp; run [Visual R Markdown](https://rstudio.github.io/visual-markdown-editing/) 
+<img align="left" src="www/rmd_nav_visualMdEditor.png" alt=" ">&ensp; run [Visual R Markdown](#vrm)  
+
+### Visual R Markdown {#vrm}
+
+[Visual R Markdown](https://rstudio.github.io/visual-markdown-editing/) as a Pandoc syntax (extension of Mardown), supports [Zotero](https://www.zotero.org/), can retrieve complete bibliographical references from DOI or searches on PubMed, Crossref, and DataCite  
 
 # Document structure
 
@@ -175,61 +184,14 @@ Narrative parts required principally the use of the Markdown syntax, but also su
 * [Stackoverflow](https://stackoverflow.com/a/14747656/2854081)
 * etc. 
 
-[![](www/info_darkblue.png){width=20px}](https://www.markdownguide.org/basic-syntax/)&ensp; Markdown basic syntax  
-[![](www/info_darkblue.png){width=20px}](https://stackedit.io/app#)&ensp; Markdown online editor
+![](www/info_darkblue.png){width=20px}&ensp; [Markdown basic syntax](https://www.markdownguide.org/basic-syntax/) and [Markdown online editor](https://stackedit.io/app#)  
 
+![](www/info_darkblue.png){width=20px}&ensp; [Pandoc converter](https://pandoc.org/try/) is an extension of Markdown, really usefull for text conversions (Markdown to HTML, LaTex to Markdown, etc.)
 
-#### Titles {-}
-
-```
-# Header level 1
-
-## Heading level 2
-
-### Heading level 3
-
-etc.
-```
-
-#### Spaces and end of lines {-}
-
-
-Extra spaces (HTML tags)
-
-* &emsp; `&emsp;` means 4 spaces (= a tabulation)
-* &ensp; `&ensp;` means 2 spaces
-* &nbsp; `&nbsp;` means 1 space  
-  
-
-End of line (`<br>` in HTML) with 2 or more spaces and return, for example:
-
-![](https://raw.githubusercontent.com/zoometh/oxford/main/R4A/www/rmd_eol.png){width=400px}
-  
-  
-``` 
-'Reconnais-toi  
-Cette adorable personne c'est toi  
-Sous le grand chapeau canotier  
-Oeil
-Nez  
-Ta Bouche  
-Voici l’ovale de ta figure  
-Ton cou Exquis' (Apollinaire, 1913) 
-```
-
-'Reconnais-toi  
-Cette adorable personne c'est toi  
-Sous le grand chapeau canotier  
-Oeil
-Nez  
-Ta Bouche  
-Voici l’ovale de ta figure  
-Ton cou Exquis' (Apollinaire, 1913)
-  
 
 #### Styling text {-}
 
-| code in R Markdown                                   | Output                                              |
+| code in R Markdown                                   | Render                                              |
 | ---------------------------------------------------- | --------------------------------------------------- |
 | `**bold**, __bold__`                                 | **bold**, __bold__                                  |
 | `*italic*, _italic_`                                 | *italic*, _italic_                                  |
@@ -240,11 +202,11 @@ Ton cou Exquis' (Apollinaire, 1913)
 | `$$\sum_{i=1}^{n} X^3_i$$`                           | $$\sum_{i=1}^{n} X^3_i$$                            |
 |  ...                                                 | ...                                                 |
 
-* comments `>`  
+* blockquotes `>`  
 
-`> I am commented`  
+`> I am a blockquote`  
   
-> I am commented
+> I am a blockquote
 
 * line separator  
 
@@ -326,38 +288,134 @@ produce the same result:
 * alignements
 
 ```
-| Left        |    Center   |         Rigth |
+| Left        |    Center   |         Right |
 | :---        |    :----:   |          ---: |
 | Header      | Title       | Here's this   |
 | Paragraph   | Text        | And more      |
 ```
-| Left        |    Center   |         Rigth |
+| Left        |    Center   |         Right |
 | :---        |    :----:   |          ---: |
 | Header      | Title       | Here's this   |
 | Paragraph   | Text        | And more      |
 
 
+![](www/info_darkblue.png){width=20px}&ensp; Table are often data structure difficult to layout. For complex tables you will need to use code chunks, e.g. kable() from {`knitr`} with [kable_styling()](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html) from {`kableExtra`}
+
+
+#### Images {-}
+
+These coding give the same results (Markdown and HTML):
+
+* online images (Markdown and HTML)
+  
+```
+![](https://raw.githubusercontent.com/zoometh/oxford/main/R4A/www/logo.png){width=100px}  
+<img src="https://raw.githubusercontent.com/zoometh/oxford/main/R4A/www/logo.png" alt="" width=100>  
+```  
+
+![](https://raw.githubusercontent.com/zoometh/oxford/main/R4A/www/logo.png){width=100px}  
+<img src="https://raw.githubusercontent.com/zoometh/oxford/main/R4A/www/logo.png" alt="" width=100>  
+
+* local images (Markdown and HTML)
+
+```
+![](www/logo.png){width=100px}  
+<img src="www/logo.png" alt="" width=100>  
+```  
+
+![](www/logo.png){width=100px}  
+<img src="www/logo.png" alt="" width=100>  
+
+
+#### Spaces and end of lines {-}
+
+
+Extra spaces (HTML only)
+
+* &emsp; `&emsp;` means 4 spaces (= a tabulation)
+* &ensp; `&ensp;` means 2 spaces
+* &nbsp; `&nbsp;` means 1 space  
+  
+
+End of line (`<br>` in HTML) with 2 or more spaces and return, for example:
+
+![](https://raw.githubusercontent.com/zoometh/oxford/main/R4A/www/rmd_eol.png){width=400px}
+  
+  
+``` 
+'Reconnais-toi  
+Cette adorable personne c'est toi  
+Sous le grand chapeau canotier  
+Oeil
+Nez  
+Ta Bouche  
+Voici l’ovale de ta figure  
+Ton cou Exquis' (Apollinaire, 1913) 
+```
+
+'Reconnais-toi  
+Cette adorable personne c'est toi  
+Sous le grand chapeau canotier  
+Oeil
+Nez  
+Ta Bouche  
+Voici l’ovale de ta figure  
+Ton cou Exquis' (Apollinaire, 1913)  
+
+
+#### Titles {-}
+
+```
+# Header level 1
+
+## Heading level 2
+
+### Heading level 3
+
+etc.
+```
+
+An anchor:
+
+`# Practice {#practice}` 
+
+Avoid numbering:  
+
+`#### Spaces and end of lines {-}`  
+
+Avoid numbering and add an anchor:  
+
+`#### Bookmarks {-#bookmarks}`  
+  
+
 #### Hyperlinks {-}
 
-* hyperlinks
+* to text
 
 `Report with R Markdown, part 2: [Practice](https://zoometh.github.io/oxford/R4A/2_R Markdown_Practice)`  
 Report with R Markdown, part 2: [Practice](https://zoometh.github.io/oxford/R4A/2_R Markdown_Practice)  
   
-  
+
+* to an image
+
 `[![](www/logo.png){width=70px}](https://www.unipi.it/index.php/humanities/item/16574-r4rchaeologists)`  
 [![](www/logo.png){width=70px}](https://www.unipi.it/index.php/humanities/item/16574-r4rchaeologists)  
   
 ![](www/info_darkblue.png){width=20px}&ensp; Hyperlinks can also be done with HTML/CSS
 
-#### Bookmarks {-}
+#### Bookmarks {-#bookmarks}
   
-`see chapter [Practice](#practice)`  
-see chapter [Practice](#practice)  
+`After this theoretical part, you will have to [practice](#practice)`  
+After this theoretical part, you will have to [practice](#practice)  
+
+The reference section, 'Practice', appears like that:
+
+![](www/rmd_bookmark.png){width=250px}
+
   
 #### Footnotes {-}
 
-Add footnote to the bottom of the document
+Footnote to the bottom of the document  
 
 `A simple footnote,[^1] or a longer one.[^bignote]`  
 A simple footnote,[^1] or a longer one.[^bignote]
@@ -383,9 +441,13 @@ A simple footnote,[^1] or a longer one.[^bignote]
 
     Add as many paragraphs as you like.
 ```
+### Cross-referencing
 
+Cite and reuse variables, figures, tables, sections, etc., through your document  
 
-### Call the variables
+![](www/info_darkblue.png){width=20px}&ensp; In the following verbatim blocks we use simple quotes (<notes><b> ' </b></notes>) in replacement of the back quotes (<notes><b> ` </b></notes>).
+
+#### Variables {-}
 
 ```{r  echo=TRUE}
 library(archdata)
@@ -393,12 +455,18 @@ data("Handaxes")
 number.of.axes <- nrow(Handaxes)
 ```
 
-```
-'(...) the Furze Platt dataset counts 'r number.of.axes' described by 'r ncol(Handaxes)'. The maximal length (L = 'r max(Handaxes$L)')  (...)'
-```
-'(...) the Furze Platt dataset counts `r number.of.axes` described by `r ncol(Handaxes)`. The maximal length (L = `r max(Handaxes$L)`)  (...)'
+Variables are called like this: 'r variable_name'
+  
+![](www/rmd_call_var.png){width=150px}
+  
 
-### Cross-referencing the figures
+```
+'(...) the Furze Platt dataset counts 'r number.of.axes' described by 'r ncol(Handaxes)'. The maximal length (L = 'r max(Handaxes$L)')  (...)'  
+```
+'(...) the Furze Platt dataset counts `r number.of.axes` described by `r ncol(Handaxes)`. The maximal length (L = `r max(Handaxes$L)`)  (...)' 
+  
+
+#### Figures {-}
 
 ```{r maxLmaxB, echo=TRUE, out.width="70%", fig.align="center", fig.cap="Maximum Length/Maximum breadth in cm"}
 library(archdata)
@@ -408,22 +476,28 @@ model <- lm(B ~ L, data = Handaxes)
 abline(lm(model))
 ```
 
+
 ```
-'(...) the distribution of the maximum length (L) and maximum breadth (B) shows a R^2^ = 'r round(model$coefficients[2], 2)',  Fig. \@ref(fig:maxLmaxB)) (...)'
+'(...) the distribution of the maximum length (L) and maximum breadth (B) shows a R^2^ = 'r round(model$coefficients[2], 2)',  Fig. \@ref(fig:maxLmaxB)) (...)'  
 ```
-'(...) the distribution of the maximum length (L) and maximum breadth (B) shows a R^2^ = `r round(model$coefficients[2], 2)`,  Fig. \@ref(fig:maxLmaxB)) (...)'
+'(...) the distribution of the maximum length (L) and maximum breadth (B) shows a R^2^ = `r round(model$coefficients[2], 2)`,  Fig. \@ref(fig:maxLmaxB)) (...)'  
+
+#### Sections {-}
+
+`See section [**Bookmarks**](#bookmarks)`  
+See section [**Bookmarks**](#bookmarks) 
 
 ### Bibliographic references
 
 * file `.bib` referenced in the YAML header
 
-<img align="center" src="www/rmd_yaml_bib.png" alt="rmd_yaml_bib" width=400>  
+<img src="www/rmd_yaml_bib.png" alt="rmd_yaml_bib" width=400>  
 
-<img align="center" src="www/rmd_bib.png" alt="rmd_bib" width=600>
+<img src="www/rmd_bib.png" alt="rmd_bib" width=600>
 
 * cross citation in text
 
-| code in R Markdown                                   | Output                                              |
+| code in R Markdown                                   | Render                                              |
 | ---------------------------------------------------- | --------------------------------------------------- |
 | `@Xie22`                                             | @Xie22                                              |
 | `[@Xie22]`                                           | [@Xie22]                                            |
@@ -431,25 +505,27 @@ abline(lm(model))
 | `published by Yihui Xie [-@Xie20; -@Xie22]`          | published by Yihui Xie [-@Xie20; -@Xie22]           |
 |  ...                                                 | ...                                                 |
 
-[![](www/info_darkblue.png){width=20px}](https://bookdown.org/yihui/rmarkdown-cookbook/bibliography.html#bibliography)&ensp; Bibliographies and citations [@Xie20]
+![](www/info_darkblue.png){width=20px}&ensp; [Bibliographies and citations](https://bookdown.org/yihui/rmarkdown-cookbook/bibliography.html#bibliography) [@Xie20]
 
 
-## Code parts {#chunks}
-> Code chunks
+## Code chunks {#chunks}
 
-<img align="center" src="www/rmd_codechunk_header.png" alt="">
+Code chunks, or chunks, are the placeholders for the coding part of the document  
 
-Code chunks, or chunks, are the placeholders for the coding part of the document
+![](www/rmd_codechunk_header.png)  
+
 
 ### Header
 
-The chunk header allows to set the parameter of the output results (show code, size of the output image, etc.)
+The chunk header is used to set the output options (show code, size of the output image, alignement, etc.). The first top chunk (the first one in the document) allows to set these options for all other chunks, e.g. `knitr::opts_chunk$set(echo = TRUE)` will 'echoing' all chunks unless you change these options in the following headers
+
+<img align="left" src="www/rmd_nav_mdFormatOpt.png" alt=" ">&ensp; graphical interface for options  
 
 <img align="left" src="www/rmd_codechunk_header_runabove.png" alt=" ">&ensp; run the previous chunks but not this one 
 
 <img align="left" src="www/rmd_codechunk_header_runthis.png" alt=" ">&ensp; run this chunk 
 
-#### General {-}
+#### Code evaluation {-}
 
 Code evaluation
 
@@ -461,9 +537,9 @@ Code evaluation
 
 * `warning = FALSE` prevents warnings that are generated by code from appearing in the finished.
 
-#### Plots {-}
+#### Graphical results {-}
 
-Parameters of the graphical results
+Options of the graphical results
 
 * `fig.cap = "..."` adds a caption to graphical results.
 
@@ -473,35 +549,58 @@ Parameters of the graphical results
 
 * `fig.align = default` how to align graphics in the final document. One of 'left', 'right', or 'center'
 
-#### Global options {-}
-
-The first top chunk (the first one in the document) can set these parameters for all other chunks, e.g. `knitr::opts_chunk$set(echo = TRUE)` will echoing all chunks
+* `fig.pos = 'H'` fix the output exactly here
 
 ### Body
 
-The body of a code chunk is where you will place the R code you have scripted
+The body of a code chunk is <notes>where you place the R code</notes> you have scripted. 
 
-## Header part {#yaml}
-> YAML header
+#### Images {-}
 
-<img align="center" src="www/rmd_yaml.png" alt="">
+Images can be render with `knitr::include_graphics("path/to/image")` 
 
-Metadata and document configuration
+```{r munsingenfib, echo=TRUE, out.width = "50%", fig.align="center", fig.cap= "Fibulae measurements (Hodson, 1970)"}
+knitr::include_graphics("www/munsingen_fib_measures.png") 
+```
 
-* `title`: Title
+## YAML part {#yaml}
 
-* `author`: Author
+<img src="www/rmd_yaml.png" alt="">
 
-* `date`:
-  - "`r format(Sys.time(), '%D')`"
-  - "`r format(Sys.time(), '%d %B %Y')`"
-  - etc.
+This is the document header, it contains the metadata (e.g, Title, Authors, date) and the document configuration (e.g. HTML or PDF rendering, table of content). It is composed on key-value pairs:  
   
-* `toc`: table of contents
+`title`: Title  
+  
+`author`: Author  
+  
+`date`:  
+&emsp;`"03/02/2022"`  
+&emsp;"03/02/2022"  
+&emsp;`"'r format(Sys.time(), '%D')'"`  
+&emsp;"`r format(Sys.time(), '%D')`"  
+&emsp;`"'r format(Sys.time(), '%d %B %Y')'"`  
+&emsp;"`r format(Sys.time(), '%d %B %Y')`"  
+&emsp;...  
+  
+`output`:  
+&emsp;`html_document`  
+&emsp;`pdf_document`  
+&emsp;...  
+&emsp;`pdf_document:`  
+&emsp;&emsp;`toc: yes`  
+  
+`toc`: table of contents  
+&emsp;`toc: yes`  
+&emsp;`toc_depth: 4`  
+&emsp;`toc_float:`  
+&emsp;&emsp;`collapsed: no`  
+&emsp;&emsp;...  
+  
+`bibliography`: bibliographical references, BibTex format (e.g. https://github.com/zoometh/oxford/blob/main/R4A/references.bib)
 
-* `bibliography`: bibliographical references
+...
 
-* etc.
+![](www/info_darkblue.png){width=20px} [YAML for R Markdown](https://bookdown.org/yihui/rmarkdown/html-document.html#html-document) [@Xie18]
 
 # HTML/CSS
 
@@ -509,24 +608,25 @@ Can be use in all parts of the document (YAML header, code chunks, narrative par
 
 ## Styling
 
-| code in R Markdown (= HTML)                          | Output                                              |
+| code in R Markdown (= HTML)                          | Render                                              |
 | ---------------------------------------------------- | --------------------------------------------------- |
 | `<span style='font-size: 30px'>Big font</span>`      | <span style='font-size: 30px'>Big font</span>       |
 | `<b>bolded</b>`                                      | <b>bolded</b>                                       |
-| `<span style="color:red">color</span>`               | <span style="color:red">color</span>                |
+| `<span style="color:red">red</span>`                 | <span style="color:red">red</span>                  |
 |  ...                                                 | ...                                                 |
 
-`Customize the document with CSS layouts like <notes>this element which add a dodgerblue background and turn the text into white</notes> here: https://github.com/zoometh/oxford/blob/main/R4A/styles.css`
-Customize the document with CSS layouts like <notes>this element which add a dodgerblue background and turn the text into white</notes> 
+`Customize the document with CSS layouts like <notes>this CSS element with a dodgerblue for background and white for text</notes> here: https://github.com/zoometh/oxford/blob/main/R4A/styles.css`
+Customize the document with CSS layouts like <notes>this CSS element with a dodgerblue for background and white for text</notes> 
   
-![](www/info_darkblue.png){width=20px} The CSS file is here: https://github.com/zoometh/oxford/blob/main/R4A/styles.css
+![](www/info_darkblue.png){width=20px} The CSS file is here: https://github.com/zoometh/oxford/blob/main/R4A/styles.css  
+
+![](www/info_darkblue.png){width=20px} [HTML online editor](https://www.w3schools.com/tryit/tryit.asp?filename=tryhtml_hello)  
 
 ## Interactivity
 
-The interest of HTML is its ability to be deployed online, with interactive settings. R offers a real  framework to create interactive documents, [Shiny](https://shiny.rstudio.com/). Shiny can be integrated into R Markdown
-
-  - try: `File > New File > Rmarkdown > Shiny`, or
-  - in the YAML header:
+The interest of HTML is its ability to be deployed online, with interactive settings. R offers a real  framework to create interactive documents, [Shiny](https://shiny.rstudio.com/). Shiny can be integrated into R Markdown  
+  
+Try: `File > New File > Rmarkdown > Shiny`, or in the YAML header:
   
 ```
     runtime: shiny`
@@ -534,9 +634,9 @@ The interest of HTML is its ability to be deployed online, with interactive sett
 
 ### Maps
 
-With the {leaflet} package
+With the {`leaflet`} package
 
-```{r munsingenspat, echo=T, warning = F, message = F, fig.align='center'}
+```{r munsingenspat, echo=TRUE, warning = FALSE, message = FALSE}
 library(dplyr)
 library(leaflet)
 munsingen.long <- 7.569587484129203
@@ -555,15 +655,15 @@ leaflet(width = "60%", height = "400px") %>%
 
 ### Plots 2D
 
-With the {plotly} package
+With the {`plotly`} package
 
-```{r munsingenplot2D, message= F, echo=F, warning = F, fig.align='center'}
+```{r munsingenplot2D, message=FALSE, echo=TRUE, warning = FALSE}
 library(plotly)
 library(dplyr)
 library(archdata)
 data("Fibulae")
 Fibulae.ex <- Fibulae
-Fibulae.ex$lbl <- paste0("<b>Grave: ", Fibulae.ex$Grave, "</b><br>",
+Fibulae.ex$lbl <- paste0("<b>Museum num.: ", Fibulae.ex$Mno, "</b><br>",
                           "Length: ", Fibulae.ex$Length, "<br>",
                           "Foot Angle: ", Fibulae.ex$FA, "<br>")
 plot_ly(data = Fibulae.ex, 
@@ -576,9 +676,9 @@ plot_ly(data = Fibulae.ex,
 
 ### Plots 3D
 
-With the {rgl} package
+With the {`rgl`} package
 
-```{r munsingenplot3D, echo=FALSE, out.width="25%", fig.align="center"}
+```{r munsingenplot3D, echo=TRUE, out.width="25%"}
 library(rgl)
 options(rgl.useNULL = TRUE) # avoid the popup RGL device
 nb.samp <- 12
@@ -588,7 +688,7 @@ Fibulae.nbGrave <- Fibulae %>%
   arrange(-n) %>%
   slice_head(n = nb.samp)
 Fibulae.samp <- Fibulae[Fibulae$Grave %in% Fibulae.nbGrave$Grave, ]
-# rainbow colors
+# rainbow colors by graves
 Fibulae.samp$color <- rainbow(nb.samp)[as.numeric(as.factor(Fibulae.samp$Grave))]
 plot3d(
   x = Fibulae$Length,
@@ -602,39 +702,53 @@ plot3d(
 rglwidget()
 ```
   
-[![](www/info_darkblue.png){width=20px}](https://www.r-graph-gallery.com/3d_scatter_plot.html
-)&ensp; 3D scatterplots with R
+![](www/info_darkblue.png){width=20px}&ensp; [3D scatterplots](https://www.r-graph-gallery.com/3d_scatter_plot.html
+)
 
 # Export document
 
-Export R Markdown in:
+Export R Markdown in: HTML, PDF, LaTeX, Word, ODT, RTF, Markdown, etc. (see: https://rmarkdown.rstudio.com/lesson-9.html)
 
-* HTML
-  - Natively. this R Markdown document/webpage
+## HTML
+
+Basic. HTML export is the default option of a R Markdown document.
   
-* PDF
-  - Use  LaTeX syntax, you need to install the [tinytex](https://yihui.org/tinytex/r/) R package [Xie19]
+## PDF
+
+Harder. PDF uses LaTeX syntax, if you don't have [MiKTeX](https://miktex.org/) installed, you need to install the [{tinytex}](https://yihui.org/tinytex/r/) package [Xie19]. 
+
+```
+install.packages('tinytex')
+tinytex::install_tinytex()
+# .rs.restartR()
+```
+
+To export in PDF, change the YAML key-value pair `bookdown::html_document2:` to `bookdown::pdf_document2:` and knit. These temporary files are creates:  
   
-* LaTex
-  - in the YAML header:
+<img src="www/rmd_knit_pdf.png" alt=" ">   
+  
+At the end of the render these files are deleted  
+
+
+## LaTeX
+
+LaTeX (extension of TeX) is a rich plain text syntax for academic writing. To export in TeX, select in the YAML header a PDF export + keep tex:
   
 ```
-    out_put: pdf_document 
+    bookdown::pdf_document2: 
         keep_tex: true
 
 ```
 
-![](www/info_darkblue.png){width=20px}&ensp; Exists a lot of online apps making the conversions easier: [Pandoc converter](https://pandoc.org/try/), [Word to HTML](https://wordtohtml.net/), etc.
+![](www/info_darkblue.png){width=20px}&ensp; Alongside [Pandoc](https://pandoc.org/try/), exists a lot of online apps making the conversions easier (e.g. [Word to HTML](https://wordtohtml.net/))
 
-
-# Publishing on platforms
 
 # Publishing on platforms
 
 * [Rpubs](https://rpubs.com/)
-  - after Render: <img align="center" src="www/rmd_publish_Rpubs.png" alt="">
+  - after Render: <img src="www/rmd_publish_Rpubs.png" alt="">
 
-* GitHub/GitLab, a single document is accessible:
+* GitHub/GitLab, the same document is accessible by different means:
   - formatted: https://github.com/zoometh/oxford/blob/main/R4A/helloworld.html
   - raw: https://raw.githubusercontent.com/zoometh/oxford/main/R4A/helloworld.html
   - HTML: https://zoometh.github.io/oxford/R4A/helloworld.html
@@ -642,24 +756,22 @@ Export R Markdown in:
   
 # Practice {#practice}
 
-TODO:
+**1)**  Use `1_Rmarkdown_Theory.Rmd` as a model (copy/paste code snippets, Mardown syntax, etc.): 
 
-* https://github.com/zoometh/oxford/blob/main/R4A/1_Rmarkdown_Theory.Rmd
+  - view:  https://github.com/zoometh/oxford/blob/main/R4A/1_Rmarkdown_Theory.Rmd
   - download: https://zoometh.github.io/oxford/R4A/1_Rmarkdown_Theory.Rmd
   
-Use **1_Rmarkdown_Theory.Rmd** as a model (copy/paste code snipet, Mardown syntax, etc.)
+**2)** `2_Rmarkdown_Practice.Rmd` gives an example of the desired structure for the Practice part:
 
-* https://github.com/zoometh/oxford/blob/main/R4A/2_Rmarkdown_Practice.Rmd
-  - download: https://zoometh.github.io/oxford/R4A/2_Rmarkdown_Practice.Rmd
+  - view: https://github.com/zoometh/oxford/blob/main/R4A/2_Rmarkdown_Practice.Rmd
+  - download: https://zoometh.github.io/oxford/R4A/2_Rmarkdown_Practice.Rmd  
   
-**2_Rmarkdown_Practice** gives an example of the desired structure of the practice part 
+**3)** `references.bib `is the document where you will add the bibliographic references of the practice part. Google Scholar is a nice tool to copy/paste BibTex references, e.g. [this reference](https://scholar.google.fr/scholar?hl=en&as_sdt=0%2C5&q=The+British+Lower+and+Middle+Paleolithic%3A+some+problems%2C+methods+of+study+and+preliminary+results&btnG=#):  
 
-* https://github.com/zoometh/oxford/blob/main/R4A/references.bib
+  - view:  https://github.com/zoometh/oxford/blob/main/R4A/references.bib
   - download: https://zoometh.github.io/oxford/R4A/references.bib
   
-**references.bib** is the document where you will add the bibliographic refences of the practice part. Google Scholar is a nice tool to copy/paste BibTex references, e.g. [this reference](https://scholar.google.fr/scholar?hl=en&as_sdt=0%2C5&q=The+British+Lower+and+Middle+Paleolithic%3A+some+problems%2C+methods+of+study+and+preliminary+results&btnG=#)
-
-* choose a dataset of the {archdata} package (e.g. 'Handaxes'), you will have to analyse these data/reuse the code you have already created (run `?archdata` to see the list of these dataset)
+**4)** choose a dataset of those available in the {`archdata`} package (e.g. 'Handaxes'), you will have to analyse these data/reuse the code you have already created (run `?archdata` to see the list of these dataset)
 
 
 
